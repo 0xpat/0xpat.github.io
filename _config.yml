@@ -1,3 +1,4 @@
+theme: jekyll-theme-hacker
 name: 0xPat blog
 description: Red Teamer, infosec enthusiast
 avatar: ../images/logo.png
@@ -41,4 +42,3 @@ exclude:
   - README.md
   - CNAME
 
-theme: jekyll-theme-hacker
