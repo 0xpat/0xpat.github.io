@@ -1,2 +1,2 @@
 # 0xPat blog
-## Infosec enthustiast
+## Red/purple teamer

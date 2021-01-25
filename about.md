@@ -6,7 +6,7 @@ permalink: /about/
 
 ### About me
 
-Infosec enthusiast
+Red/purple teamer
 
 
 ### Contact me
