@@ -17,7 +17,7 @@ I decided to browse COM classes available on the default Windows (Server 2012) i
 The technique I used is quite straightforward:  
 1. Enumerate all CLSID, e.g. using [ComPower](https://github.com/Kriegel/ComPower) tool.
 2. Attempt to instantiate all enumerated objects, one at a time - using `[System.Activator]::CreateInstance([type]::GetTypeFromCLSID($CLSID))` PowerShell method.
-3. For each created object enumerate its properties and methods (`$object | Get-Member`). Then recursively (DFS-like) enumerate properties and methods of each property.  
+3. For each created object enumerate its properties and methods (`$object | Get-Member`). Then recursively (DFS-like) enumerate properties and methods of each property.
 However I encountered some caveats - mainly recursion 'traps' when an object property was of the same type as the object (e.g. `{CLSID}.Document.Document.Document(...)` and so on). Anyway, after some tweaks applied to the script I was able to enumerate lots of objects. Output file had 2 million lines - each represented some object property or method.
 4. Grep results for interesting names, such as "Shell", "Execute", "Create", "Run", "Exec" etc.  
 
