@@ -135,13 +135,13 @@ Let's hunt for any improper token handling - maybe there are some instances wher
 
 `org/owasp/webgoat/jwt/JWTVotesEndpoint.java` class may be vulnerable.
 
-![JWTVotesEndpoint1](../images/2021-06-23-Vuln_discovery_Java/JWTVotesEndpoint1.png)
+![JWTVotesEndpoint1](../images/2021-06-23-Vuln_discovery_Java/JwtVotesEndpoint1.png)
 
 As we see, `/JWT/votings` endpoint does not verify the token signature properly, as it uses `parse(String)` function and does not check if returned `Jwt` is `Jws` or not. The endpoint also verifies the "admin" claim in the token. We will try to pass this check.
 
 But before we start exploiting stuff here, let's take a look at another function in `JWTVotesEndpoint`:
 
-![JWTVotesEndpoint2](../images/2021-06-23-Vuln_discovery_Java/JWTVotesEndpoint2.png)
+![JWTVotesEndpoint2](../images/2021-06-23-Vuln_discovery_Java/JwtVotesEndpoint2.png)
 
 `login` function can be invoked via a web request to get a valid non-admin token for a user (valid users are: "Tom", "Jerry" and "Sylvester" as stated in this line of code: `private static String validUsers = "TomJerrySylvester";`). Remember that this is an example vulnerable app that teaches us about common vulnerabilites, so this particular "login" process and token acquisition is simplified for the sake of exercise :)
 
